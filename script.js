@@ -63,6 +63,7 @@ document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
 
 let slideIndex = 0;
     let slides = document.querySelectorAll(".slides img");
+    const descriptionDiv = document.querySelector(".description");
 
     // Fonction pour afficher la diapositive
     function afficherDiapo(n) {
@@ -72,6 +73,7 @@ let slideIndex = 0;
       slideIndex = (n + slides.length) % slides.length; // Gérer le débordement
       slides[slideIndex].style.display = "block";
       slides[slideIndex].classList.add("fade");
+      descriptionDiv.textContent = descriptions[slideIndex];
     }
 
     // Initialiser le diaporama
