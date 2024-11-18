@@ -23,7 +23,7 @@ body {
     .description {
       padding: 10px;
       font-size: 16px;
-      background-color: #f06d06;
+      background: #f06d06;
       border-top: 2px solid #ddd;
   
     /* Boutons précédent et suivant */
