@@ -4,55 +4,56 @@ body {
   color: white;
   text-align: center;
 }
+
 .diaporama {
-  position: relative;
-  width: 80%; /* Ajuste la largeur selon tes besoins */
-  margin: auto;
-  overflow: hidden;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-}
+      position: relative;
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+    }
 
-/* Les images dans le diaporama */
-.slides img {
-  width: 100%; /* Les images occupent toute la largeur */
-  display: none; /* Masque toutes les images sauf celle en cours */
-}
+    /* Les images dans le diaporama */
+    .slides img {
+      width: 100%;
+      display: none; /* Masque toutes les images sauf celle active */
+    }
 
-/* Boutons précédent et suivant */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 18px;
-  z-index: 10;
-}
+    /* Boutons précédent et suivant */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      z-index: 10;
+    }
 
-.prev {
-  left: 10px;
-}
+    .prev {
+      left: 10px;
+    }
 
-.next {
-  right: 10px;
-}
+    .next {
+      right: 10px;
+    }
 
-/* Animation pour les transitions */
-.slides img.fade {
-  display: block;
-  animation: fade 1s;
-}
+    /* Animation pour les transitions */
+    .slides img.fade {
+      display: block;
+      animation: fade 1s;
+    }
 
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
+    @keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
