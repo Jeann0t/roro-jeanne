@@ -38,6 +38,29 @@ document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
     setInterval(calculerTempsEcoule, 1000);
 
 //Diapo
+ const descriptions = [
+      "29/10/2022: Soirée Halloween",
+      "03/12/2022: Week-end à Lyon",
+      "19/12/2022: Soirée de Noël",
+      "26/03/2023: Soirée Masquerade",
+      "27/05/2023: FIMU",
+      "04/06/2023: Soirée fille",
+      "17/09/2023: Montée du Salbert",
+      "11/10/2023: Soirée caveau des anges (je t'ai laissé à l'entrée)",
+      "17/10/2023: WEI",
+      "13/11/2023: Soirée Bad Habits",
+      "18/11/2023: Gala",
+      "27/11/2023: Soirée Mexique",
+      "22/01/2024: Ski'UT",
+      "08/04/2024: À distance",
+      "10/07/2024: Retrouvaille aux Sables",
+      "12/07/2024: Séance photos",
+      "16/07/2024: Mont St Michel",
+      "24/07/2024: Volley dans le sud",
+      "25/07/2024: Visite chez mamie Castan",
+      "27/07/2024: Soirée chez les Castan"
+    ];
+
 let slideIndex = 0;
     let slides = document.querySelectorAll(".slides img");
 
