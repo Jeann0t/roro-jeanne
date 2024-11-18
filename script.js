@@ -38,7 +38,9 @@ document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
     setInterval(calculerTempsEcoule, 1000);
 
 //Diapo
- const descriptions = [
+
+// Tableau des descriptions
+    const descriptions = [
       "29/10/2022: Soirée Halloween",
       "03/12/2022: Week-end à Lyon",
       "19/12/2022: Soirée de Noël",
@@ -61,30 +63,31 @@ document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
       "27/07/2024: Soirée chez les Castan"
     ];
 
-let slideIndex = 0;
-    let slides = document.querySelectorAll(".slides img");
+    // Variables pour gérer les diapos
+    let slideIndex = 0; // Indice de l'image affichée
+    const slides = document.querySelectorAll(".slides img");
     const descriptionDiv = document.querySelector(".description");
 
-    // Fonction pour afficher la diapositive
-    function afficherDiapo(n) {
-      slides.forEach((slide) => slide.classList.remove("fade"));
-      slides.forEach((slide) => (slide.style.display = "none"));
+    // Fonction pour afficher une diapo
+    function afficherDiapo(index) {
+      // Masquer toutes les images
+      slides.forEach((slide) => slide.classList.remove("active"));
 
-      slideIndex = (n + slides.length) % slides.length; // Gérer le débordement
-      slides[slideIndex].style.display = "block";
-      slides[slideIndex].classList.add("fade");
+      // Calculer le nouvel index (avec boucle)
+      slideIndex = (index + slides.length) % slides.length;
+
+      // Afficher l'image correspondante
+      slides[slideIndex].classList.add("active");
+
+      // Mettre à jour la description
       descriptionDiv.textContent = descriptions[slideIndex];
     }
 
-    // Initialiser le diaporama
-    afficherDiapo(slideIndex);
-
-    // Naviguer entre les images
-    document.querySelector(".prev").addEventListener("click", () => {
-      afficherDiapo(slideIndex - 1);
+    // Gestion des boutons
+    document.getElementById("prev").addEventListener("click", () => {
+      afficherDiapo(slideIndex - 1); // Image précédente
     });
 
-    document.querySelector(".next").addEventListener("click", () => {
-      afficherDiapo(slideIndex + 1);
+    document.getElementById("next").addEventListener("click", () => {
+      afficherDiapo(slideIndex + 1); // Image suivante
     });
-
