@@ -62,8 +62,3 @@ let slideIndex = 0;
   document.querySelector(".next").addEventListener("click", () => {
     afficherDiapo(slideIndex + 1);
   });
-
-  // Défilement automatique toutes les 5 secondes
-  setInterval(() => {
-    afficherDiapo(slideIndex + 1);
-  }, 5000);
