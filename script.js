@@ -63,7 +63,3 @@ let slideIndex = 0;
       afficherDiapo(slideIndex + 1);
     });
 
-    // Défilement automatique toutes les 5 secondes
-    setInterval(() => {
-      afficherDiapo(slideIndex + 1);
-    }, 5000);
