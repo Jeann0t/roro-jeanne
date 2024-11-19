@@ -38,7 +38,7 @@ document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
     setInterval(calculerTempsEcoule, 1000);
 
 //Diapo
-
+document.addEventListener("DOMContentLoaded", function () {
 // Tableau des descriptions
     const descriptions = [
       "29/10/2022: Soirée Halloween",
@@ -64,30 +64,25 @@ document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
     ];
 
     // Variables pour gérer les diapos
-    let slideIndex = 0; // Indice de l'image affichée
-    const slides = document.querySelectorAll(".slides img");
-    const descriptionDiv = document.querySelector(".description");
+   let slideIndex = 0;
+  const slides = document.querySelectorAll(".slides img");
+  const descriptionDiv = document.querySelector(".description");
 
-    // Fonction pour afficher une diapo
-    function afficherDiapo(index) {
-      // Masquer toutes les images
-      slides.forEach((slide) => slide.classList.remove("active"));
+  function afficherDiapo(index) {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    slideIndex = (index + slides.length) % slides.length;
+    slides[slideIndex].classList.add("active");
+    descriptionDiv.textContent = descriptions[slideIndex];
+  }
 
-      // Calculer le nouvel index (avec boucle)
-      slideIndex = (index + slides.length) % slides.length;
+  const prevButton = document.getElementById("prev");
+  const nextButton = document.getElementById("next");
 
-      // Afficher l'image correspondante
-      slides[slideIndex].classList.add("active");
+  prevButton.addEventListener("click", () => {
+    afficherDiapo(slideIndex - 1);
+  });
 
-      // Mettre à jour la description
-      descriptionDiv.textContent = descriptions[slideIndex];
-    }
-
-    // Gestion des boutons
-    document.getElementById("prev").addEventListener("click", () => {
-      afficherDiapo(slideIndex - 1); // Image précédente
-    });
-
-    document.getElementById("next").addEventListener("click", () => {
-      afficherDiapo(slideIndex + 1); // Image suivante
-    });
+  nextButton.addEventListener("click", () => {
+    afficherDiapo(slideIndex + 1);
+  });
+});
