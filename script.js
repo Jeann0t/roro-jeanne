@@ -63,26 +63,27 @@ document.addEventListener("DOMContentLoaded", function () {
       "27/07/2024: Soirée chez les Castan"
     ];
 
-    // Variables pour gérer les diapos
-   let slideIndex = 0;
-  const slides = document.querySelectorAll(".slides img");
-  const descriptionDiv = document.querySelector(".description");
+// Variables pour gérer les diapos
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slides img");
+const descriptionDiv = document.querySelector(".description");
 
-  function afficherDiapo(index) {
+function afficherDiapo(index) {
     slides.forEach((slide) => slide.classList.remove("active"));
     slideIndex = (index + slides.length) % slides.length;
     slides[slideIndex].classList.add("active");
     descriptionDiv.textContent = descriptions[slideIndex];
-  }
+}
 
-  const prevButton = document.getElementById("prev");
-  const nextButton = document.getElementById("next");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
 
-  prevButton.addEventListener("click", () => {
+prevButton.addEventListener("click", () => {
     afficherDiapo(slideIndex - 1);
-  });
+});
 
-  nextButton.addEventListener("click", () => {
+nextButton.addEventListener("click", () => {
     afficherDiapo(slideIndex + 1);
-  });
+});
+    
 });
