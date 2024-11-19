@@ -20,6 +20,10 @@ body {
       display: none; /* Masque toutes les images sauf celle active */
     }
 
+    .slides img.active {
+      display: block;
+    }
+
     .description {
       padding: 10px;
       font-size: 16px;
