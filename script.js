@@ -1,31 +1,32 @@
 document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
 
 // Date de départ (25 novembre 2022)
-var dateDebut = new Date(2022, 10, 25);  // Mois est de 0 à 11, donc 10 représente novembre
+var dateDebut = new Date(2022, 10, 25); // Mois 10 = Novembre (0-indexé)
 
 // Fonction pour calculer la différence entre la date actuelle et la date de départ
 function calculerTempsEcoule() {
-    var dateActuelle = new Date();  // Date actuelle
+    var dateActuelle = new Date(); // Date actuelle
 
-    // Calculer la différence en millisecondes
-    var diff = dateActuelle - dateDebut;
-
-    // Convertir cette différence en années, mois et jours
+    // Calculer les différences initiales
     var diffAnnee = dateActuelle.getFullYear() - dateDebut.getFullYear();
     var diffMois = dateActuelle.getMonth() - dateDebut.getMonth();
     var diffJour = dateActuelle.getDate() - dateDebut.getDate();
 
-    // Si on a passé un mois sans avoir atteint le même jour du mois, réduire le nombre d'années
+    // Ajuster si le mois actuel est avant le mois de départ
     if (diffMois < 0) {
         diffAnnee--;
-        diffMois += 12;  // Ajouter 12 mois (puisqu'on a traversé une année)
+        diffMois += 12; // Corrige les mois en ajoutant 12
     }
 
-    // Si on a passé un jour sans avoir atteint le même jour, réduire le nombre de mois
+    // Ajuster si le jour actuel est avant le jour de départ
     if (diffJour < 0) {
         diffMois--;
-        var lastMonth = new Date(dateActuelle.getFullYear(), dateActuelle.getMonth(), 0);  // Dernier jour du mois précédent
-        diffJour += lastMonth.getDate();  // Ajouter les jours du mois précédent
+        var dernierJourMoisPrecedent = new Date(
+            dateActuelle.getFullYear(),
+            dateActuelle.getMonth(),
+            0 // Jour 0 = dernier jour du mois précédent
+        ).getDate();
+        diffJour += dernierJourMoisPrecedent; // Ajoute les jours restants du mois précédent
     }
 
     // Affichage des résultats dans le DOM
