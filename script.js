@@ -16,7 +16,7 @@ function calculerTempsEcoule() {
     var diffJour = dateActuelle.getDate() - dateDebut.getDate();
 
     // Si on a passé un mois sans avoir atteint le même jour du mois, réduire le nombre d'années
-    if (diffMois <= 0) {
+    if (diffMois < 0) {
         diffAnnee--;
         diffMois += 12;  // Ajouter 12 mois (puisqu'on a traversé une année)
     }
